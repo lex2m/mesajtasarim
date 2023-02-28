@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Profil fotoğrafı kullanmak için fotoğrafınızın adını " b.jpg " yapmayı unutmayınız. -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28 / 02 / 2023</title>
+    <style>
+        body {
+            background-color: gray;
+            font-family: sans-serif;
+        }
+
+        #genelCerceve {
+            background-color: lightblue;
+            border-radius: 10px;
+            width: 400px;
+            max-height: 1000px;
+            padding-bottom: 10px;
+            margin-left: 450px;
+            margin-top: 20px;
+        }
+
+        #mesajGirisi {
+            background-color: white;
+            border-radius: 10px;
+            width: 400px;
+            height: 70px;
+        }
+
+        #mesajGirisi>img {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        #mesajGirisi>input {
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+
+        #mesajKutulari {
+            background-color: white;
+            border-radius: 3px;
+            width: 380px;
+            height: auto;
+            margin-left: 10px;
+        }
+
+        .gidenMesaj {
+            border-bottom: 2px gray solid;
+            word-wrap: break-word;
+            font-weight: 300;
+        }
+
+        .gidenMesaj>img {
+            width: 20px;
+            height: 20px;
+            margin: 2px 5px 0px 5px;
+            float: left;
+
+        }
+
+        #tarih {
+            color: gray;
+            font-size: 10px;
+        }
+
+        h1 {
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="genelCerceve">
+        <div id="mesajGirisi">
+            <img src="b.jpg"> <!-- Profil Resmi -->
+            <input type="text" id="mesaj" placeholder="Mesajınızı giriniz."> <!-- Mesaj Girişi -->
+            <input type="button" value="Gönder" onclick="mesajGonder()"> <!-- Gönderme Düğmesi -->
+        </div>
+        <hr>
+        <div id="mesajKutulari">
+            <!-- Buraya innerHTML komutu ile kodlar eklenecek -->
+
+        </div>
+    </div>
+    <script>
+        function mesajGonder() {
+            var mesaj = document.getElementById("mesaj").value;
+
+            if(mesaj == "" || mesaj == null){   alert("Mesaj Boş bırakılmaz.");} // Mesaj boş bırakılırsa verilecek uyarı.
+             
+            
+            else {
+                var d = new Date();  
+                var saat = d.getHours();      // Saat İşlemleri
+                var dakika = d.getMinutes(); // Dakika İşlemleri
+                document.getElementById("mesajKutulari").innerHTML +=
+                    "<div class='gidenMesaj'> <img src='b.jpg'>" + "<h1> Namaste</h1> "
+                    + mesaj +
+                    "   <span id='tarih'>" + saat + ":" + dakika + "</span></div>";
+                document.getElementById("mesaj").value = "";    
+
+            }
+        }
+    </script>
+</body>
+
+</html>
